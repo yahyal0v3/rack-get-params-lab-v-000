@@ -19,10 +19,11 @@ class Application
       end
     elsif req.path.match(/add/)
       added_term = req.params["q"]
+      binding.pry
       if @@items.include?(added_term)
         @@cart << added_term
         resp.write "added #{added_term}"
-      else
+      elsif 
         resp.write "We don't have that item"
       end
     elsif req.path.match(/search/)
