@@ -20,7 +20,7 @@ class Application
     elsif req.path.match(/add/)
       added_term = req.params["q"]
       @@cart << added_term
-      resp.write "Added #{added_term}"
+      resp.write "added #{added_term}"
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
