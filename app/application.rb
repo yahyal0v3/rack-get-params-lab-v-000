@@ -41,7 +41,7 @@ class Application
   def handle_adding(added_item)
     if @@items.include?(added_item)
       @@cart << added_item
-      return "added #{added_term}"
+      return "added #{added_item}"
     else
       return "We don't have that item"
     end
