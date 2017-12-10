@@ -42,7 +42,7 @@ class Application
     if @@items.include?(added_term)
       @@cart << added_term
       return "added #{added_term}"
-    elsif
+    else
       return "We don't have that item"
     end
   end
