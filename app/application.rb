@@ -15,7 +15,7 @@ class Application
       if @@cart.empty?
         resp.write "Your cart is empty"
       else
-        resp.write "Your cart contains "#{@@cart.join("\n")}"
+        resp.write "Your cart contains #{@@cart.join("\n")}"
       end
     elsif req.path.match(/add/)
       added_term = req.params["q"]
