@@ -15,17 +15,17 @@ class Application
       if @@cart.empty?
         resp.write "Your cart is empty"
       else
-        @@cart.each {|cart| resp.write "#{cart}\n"}
+        resp.write "Your cart contains "#{@@cart.join("\n")}"
       end
     elsif req.path.match(/add/)
       added_term = req.params["q"]
       resp.write added_term
-      # if @@items.include?(added_term)
-      #   @@cart << added_term
-      #   resp.write "added #{added_term}"
-      # elsif
-      #   resp.write "We don't have that item"
-      # end
+       if @@items.include?(added_term)
+         @@cart << added_term
+         resp.write "added #{added_term}"
+       elsif
+         resp.write "We don't have that item"
+       end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
