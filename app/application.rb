@@ -1,11 +1,8 @@
-require 'pry'
-
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
 
   def call(env)
-    binding.pry
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
