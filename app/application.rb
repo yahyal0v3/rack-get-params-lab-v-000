@@ -17,6 +17,7 @@ class Application
       end
     elsif req.path.match(/add/)
       added_term = req.params["q"]
+      @@cart << added_term
       resp.write "Added #{added_term}"
     elsif req.path.match(/search/)
       search_term = req.params["q"]
