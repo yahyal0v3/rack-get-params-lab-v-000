@@ -1,3 +1,5 @@
+require 'pry'
+
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
@@ -23,7 +25,7 @@ class Application
       if @@items.include?(added_term)
         @@cart << added_term
         resp.write "added #{added_term}"
-      elsif 
+      elsif
         resp.write "We don't have that item"
       end
     elsif req.path.match(/search/)
