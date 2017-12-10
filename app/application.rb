@@ -18,14 +18,8 @@ class Application
         resp.write "Your cart contains #{@@cart.join("\n")}"
       end
     elsif req.path.match(/add/)
-      added_term = req.params["q"]
-      resp.write added_term
-       if @@items.include?(added_term)
-         @@cart << added_term
-         resp.write "added #{added_term}"
-       elsif
-         resp.write "We don't have that item"
-       end
+      added_item = req.params["item"]
+      resp.write handle_adding(added_item)
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
@@ -43,4 +37,15 @@ class Application
       return "Couldn't find #{search_term}"
     end
   end
+
+  def handle_adding(added_item)
+    if @@items.include?(added_term)
+      @@cart << added_term
+      return "added #{added_term}"
+    elsif
+      return "We don't have that item"
+    end
+  end
 end
+
+
